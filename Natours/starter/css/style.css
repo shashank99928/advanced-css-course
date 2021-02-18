@@ -116,6 +116,20 @@ body {
     transform: translate(0);
   }
 }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+ 
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
 /* Button */
 
 .btn:link,
@@ -127,6 +141,7 @@ body {
   border-radius: 100px;
   transition: all 0.2s;
   position: relative;
+
 }
 
 .btn:hover {
@@ -167,7 +182,12 @@ body {
 
 .btn:hover::after {
   z-index: 1;
-  transform: scale(1.5);
+  transform: scaleX(1.4)  scaleY(1.6);
   opacity: 0;
 
+}
+
+.btn-animated{
+  animation: ease-out .5s moveInBottom .75s;
+  animation-fill-mode: backwards;
 }
