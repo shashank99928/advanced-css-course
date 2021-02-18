@@ -48,16 +48,18 @@ body {
   height: 30px;
 }
 
-.text-box{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+  /* hides the shakiness  from animations*/
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -65,11 +67,50 @@ body {
   font-weight: 400;
   font-size: 60px;
   letter-spacing: 35px;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 3s; */
 }
 
 .heading-primary-sub {
   display: block;
   font-weight: 400;
   font-size: 20px;
-  letter-spacing: 15px;
+  letter-spacing: 17.4px;
+  animation: ease-out 1s moveInRight;
+}
+
+/* used for animating the header  */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight{
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  80% { 
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
