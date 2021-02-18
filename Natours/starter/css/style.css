@@ -126,6 +126,7 @@ body {
   display: inline-block;
   border-radius: 100px;
   transition: all 0.2s;
+  position: relative;
 }
 
 .btn:hover {
@@ -141,4 +142,32 @@ body {
 .btn-white {
   background-color: white;
   color: #777;
+}
+
+/* adding animation to hover button */
+
+.btn::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  /* makes a new line with button content hello */
+  display: inline-block;
+  /* relative position is against .btn:link,.btn:visited line 121 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn-white:after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  z-index: 1;
+  transform: scale(1.5);
+  opacity: 0;
+
 }
